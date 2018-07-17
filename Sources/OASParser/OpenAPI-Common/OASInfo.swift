@@ -9,9 +9,15 @@ import XTendedCodable
 /// This object MAY be extended with Specification Extensions.
 public struct OASInfo: XTendedCodable {
 
-    /// **REQUIRED**. The title of the application.
+    /// **REQUIRED**.
+    /// The title of the application.
     public let title: String
 
+    /// **REQUIRED**.
+    /// The version of the OpenAPI document (which is distinct from the
+    /// OpenAPI Specification version or the API implementation version).
+    public let version: OASVersion
+    
     /// A short description of the application.
     /// Special (see discussions) syntax MAY be used for rich text representation.
     ///
@@ -28,11 +34,6 @@ public struct OASInfo: XTendedCodable {
 
     /// The license information for the exposed API.
     public let license: OASLicense?
-
-    /// **REQUIRED**.
-    /// The version of the OpenAPI document (which is distinct from the
-    /// OpenAPI Specification version or the API implementation version).
-    public let version: OASVersion
 
     /// Specification Extensions
     public var extensions: XTension?

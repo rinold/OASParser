@@ -1,12 +1,16 @@
 
+import XTendedCodable
+
 /// The root document object of the OpenAPI document.
-public struct OAS3Document: Codable {
+///
+/// This object MAY be extended with Specification Extensions.
+public struct OAS3Document: XTendedCodable {
 
     /// **REQUIRED**.
-    /// This string **MUST** be the semantic version number of the OpenAPI Specification version
+    /// This string MUST be the semantic version number of the OpenAPI Specification version
     /// that the OpenAPI document uses.
     ///
-    /// The openapi field *SHOULD* be used by tooling specifications and clients to interpret
+    /// The openapi field SHOULD be used by tooling specifications and clients to interpret
     /// the OpenAPI document. This is not related to the API info.version string.
     public let version: OASVersion
 
@@ -28,7 +32,7 @@ public struct OAS3Document: Codable {
     /// The list of values describes alternative security schemes that can be used
     /// (that is, there is a logical OR between the security requirements).
     /// Individual operations can override this definition.
-//    public let securityRequirements: [OASSecurityRequirement]
+    public let securityRequirements: [OAS3SecurityRequirement]?
 
     /// A list of tags used by the specification with additional metadata.
     /// The order of the tags can be used to reflect on their order by the parsing tools.
@@ -38,14 +42,20 @@ public struct OAS3Document: Codable {
     public let tags: [OASTag]?
 
     /// Additional external documentation.
-    public let externalDocumentation: OASExternalDocs?
+    public let externalDocs: OASExternalDocs?
 
-    // Codable
+    /// Specification Extensions
+    public var extensions: XTension?
+
+}
+
+extension OAS3Document {
     private enum CodingKeys: String, CodingKey {
         case version = "openapi"
         case info
         case servers
+        case securityRequirements
         case tags
-        case externalDocumentation = "externalDocs"
+        case externalDocs
     }
 }

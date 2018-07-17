@@ -7,7 +7,8 @@ import XTendedCodable
 /// This object MAY be extended with Specification Extensions.
 public struct OASExternalDocs: XTendedCodable {
 
-    /// **REQUIRED**. The URL for the target documentation.
+    /// **REQUIRED**.
+    /// The URL for the target documentation.
     let url: URL
 
     /// A short description of the target documentation. 

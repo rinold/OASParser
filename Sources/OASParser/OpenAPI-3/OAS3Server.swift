@@ -1,6 +1,12 @@
 
-public struct OAS3Server: Codable {
-    
+import XTendedCodable
+
+/// An object representing a Server.
+///
+/// This object MAY be extended with Specification Extensions.
+public struct OAS3Server: XTendedCodable {
+
+    /// **REQUIRED**.
     /// A URL to the target host.
     ///
     /// This URL supports Server Variables and MAY be relative,
@@ -17,5 +23,8 @@ public struct OAS3Server: Codable {
     ///
     /// The value is used for substitution in the server's URL template.
     public let variables: [String: OAS3ServerVariable]?
+
+    /// Specification Extensions
+    public var extensions: XTension?
     
 }

@@ -76,15 +76,15 @@ final class OASParserTests: XCTestCase {
             let username = server2.variables?["username"]
             let port = server2.variables?["port"]
             let basePath = server2.variables?["basePath"]
-            XCTAssert(username?.defaults == "demo")
+            XCTAssert(username?.defaultValue == "demo")
             XCTAssert(username?.description == "this value is assigned by the service provider, in this example `gigantic-server.com`")
             XCTAssertNil(username?.enumeration)
 
-            XCTAssert(port?.defaults == "8443")
+            XCTAssert(port?.defaultValue == "8443")
             XCTAssertNil(basePath?.description)
             XCTAssert(port?.enumeration == ["8443", "443"])
 
-            XCTAssert(basePath?.defaults == "v2")
+            XCTAssert(basePath?.defaultValue == "v2")
             XCTAssertNil(basePath?.description)
             XCTAssertNil(basePath?.enumeration)
         } catch {

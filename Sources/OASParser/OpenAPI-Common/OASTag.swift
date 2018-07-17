@@ -7,7 +7,8 @@ import XTendedCodable
 /// This object MAY be extended with Specification Extensions.
 public struct OASTag: XTendedCodable {
 
-    /// **REQUIRED**. The name of the tag.
+    /// **REQUIRED**.
+    /// The name of the tag.
     let name: String
 
     /// A short description for the tag. 
